@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-""" Starts a Flask application that MUST be lisening on 0.0.0.0, port 5000.
-    Required
+""" Starts a Flask application that MUST be listening on 0.0.0.0, port 5000.
         routes: /:display "Hello HBNB!", /hbnb: display "HBNB" &
-                /c/<text>: display "C" forllowed by 'text' variable (with any
-                underscores replaced by a space)
+               /c/<text>: display "C" forllowed by 'text' variable (with any
+               underscores replaced by a space)
         MUST use the option 'strict_slashes=False in route definition
 """
 from flask import Flask, escape
 
-# instantiate a Flask application
+# instantiate a Flask app
 app = Flask(__name__)
-app.url_map.strict_slashes = False  # override default globally
+app.url_map.strict_slashes = False
 
 
 # define a route to trigger the function defined right after
