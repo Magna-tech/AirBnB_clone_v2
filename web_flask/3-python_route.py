@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Starts a Flask application that MUST be lisening on 0.0.0.0, port 5000.
+"""
+Starts a Flask application that MUST be lisening on 0.0.0.0, port 5000.
     Required
         routes: /:display "Hello HBNB!", /hbnb: display "HBNB" &
                 /c/<text>: display "C" forllowed by 'text' variable (with any
