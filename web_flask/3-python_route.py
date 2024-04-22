@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This script starts a new flask web application"""
 
 from flask import Flask, escape
 
