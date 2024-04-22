@@ -18,20 +18,20 @@ app.url_map.strict_slashes = False  # override default globally
 # define a route to trigger the function defined right after
 @app.route('/')
 def hello_world():
-    """ Returns 'Hello HBNB' """
+    """ This function returns string 'Hello HBNB' """
     return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hello_world_2():
-    """ Returns 'HBNB' """
+    """ This funtion returns string 'HBNB' """
     return "HBNB"
 
 
 # the route captures a value (text) from the URL & passes to the function
 @app.route('/c/<text>')
 def hello_world_3(text):
-    """ Returns 'C' followed by (space replaced underscores) text """
+    """Function returns 'C' followed by (space replaced underscores) text"""
     return "C {}".format(escape(text).replace('_', ' '))
 
 
