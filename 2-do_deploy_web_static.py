@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" Do deploy """
+"""
+This script starts a web flask application.
+It needs to be listening on 0.0.0.0, port 5000
+"""
 from fabric.api import *
 import os
 
@@ -9,8 +12,8 @@ env.hosts = ['54.82.173.163', '18.210.20.118']
 
 
 def do_deploy(archive_path):
-    ''' Distributes an archive to my web servers.
-    '''
+    """ Distributes an archive to my web servers.
+    """
     if local("ls {}".format(archive_path)).failed:
         return False
 
