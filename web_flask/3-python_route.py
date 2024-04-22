@@ -1,14 +1,5 @@
 #!/usr/bin/python3
-"""
-Starts a Flask application that MUST be lisening on 0.0.0.0, port 5000.
-    Required
-        routes: /:display "Hello HBNB!", /hbnb: display "HBNB" &
-                /c/<text>: display "C" forllowed by 'text' variable (with any
-                underscores replaced by a space)
-                /python/(<text>): display "Python" + what /c/<text> does...
-                with 'text' having the default value "is cool"
-        MUST use the option 'strict_slashes=False in route definition
-"""
+
 from flask import Flask, escape
 
 # instantiate a Flask application
