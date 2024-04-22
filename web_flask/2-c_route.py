@@ -5,6 +5,8 @@
                underscores replaced by a space)
         MUST use the option 'strict_slashes=False in route definition
 """
+
+
 from flask import Flask, escape
 
 # instantiate a Flask app
