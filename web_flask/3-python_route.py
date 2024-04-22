@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This script starts a new flask web application"""
 
+
 from flask import Flask, escape
 
 # instantiate a Flask application
@@ -11,13 +12,13 @@ app.url_map.strict_slashes = False  # override default globally
 # define a route to trigger the function defined right after
 @app.route('/')
 def hello_world():
-    """ This function returns string 'Hello HBNB' """
+    """This function returns string 'Hello HBNB'"""
     return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hello_world_2():
-    """ This funtion returns string 'HBNB' """
+    """This funtion returns string 'HBNB'"""
     return "HBNB"
 
 
@@ -33,8 +34,8 @@ def hello_world_3(text):
 # route to trigger if 'text' in url
 @app.route('/python/<text>')
 def hello_world_4(text):
-    """ Returns 'Python' followed by (space replaced underscores) text
-    Note: <text> defaults to 'is cool' if undefined """
+    """Returns 'Python' followed by (space replaced underscores) text
+    Note: <text> defaults to 'is cool' if undefined"""
     return "Python {}".format(escape(text).replace('_', ' '))
 
 
