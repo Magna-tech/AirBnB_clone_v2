@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This script starts a web flask application.
-It needs to be listening on 0.0.0.0, port 5000
+Do Deploy
 """
 from fabric.api import *
 import os
