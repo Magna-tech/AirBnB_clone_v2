@@ -35,3 +35,11 @@ def hello_world_3(text):
 if __name__ == '__main__':
     # if run as an application (not module), listen on all public IPs
     app.run(host='0.0.0.0', port=5000)
+
+#documentation for the module
+"""This module implements a Flask application with specific routes."""
+
+# Documentation for the functions
+hello_world.__doc__ = "Returns 'Hello HBNB'"
+hello_world_2.__doc__ = "Returns 'HBNB'"
+hello_world_3.__doc__ = "Returns 'C' followed by (space replaced underscores) text"
