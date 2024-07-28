@@ -1,38 +1,41 @@
 #!/usr/bin/python3
-"""This script starts a new flask web application"""
+"""
+This script starts a new flask web application
+The requirements are:
+    / to display "Hello HBNB!"
+    /hbnb to display "HBNB"
+    /c/<text> -  C text
+    /python/<text> - Python text
+    default value of text is "is cool"
+"""
 
 
-from flask import Flask, escape
+from flask import Flask
 
 # instantiate a Flask application
 app = Flask(__name__)
-app.url_map.strict_slashes = False  # override default globally
 
 
-# define a route to trigger the function defined right after
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def hello_world():
-    """This function returns string 'Hello HBNB'"""
+    """This function returns string 'Hello HBNB' in the / directory"""
     return "Hello HBNB!"
 
 
-@app.route('/hbnb')
+@app.route('/hbnb', strict_slashes=False)
 def hello_world_2():
-    """This funtion returns string 'HBNB'"""
+    """This funtion returns string 'HBNB' in the /hbnb """
     return "HBNB"
 
 
-# the route captures a value (text) from the URL & passes to the function
-@app.route('/c/<text>')
+@app.route('/c/<text>', strict_slashes=False)
 def hello_world_3(text):
     """Function returns 'C' followed by (space replaced underscores) text"""
     return "C {}".format(escape(text).replace('_', ' '))
 
 
-# route to trigger if no 'text' in url (defaults to defaults value)
-@app.route('/python', defaults={'text': 'is cool'})
-# route to trigger if 'text' in url
-@app.route('/python/<text>')
+@app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
 def hello_world_4(text):
     """Returns 'Python' followed by (space replaced underscores) text
     Note: <text> defaults to 'is cool' if undefined"""
