@@ -12,7 +12,6 @@ Required
 """
 
 
-
 from flask import Flask, escape
 
 # instantiate a Flask application
