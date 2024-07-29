@@ -24,14 +24,14 @@ def hello_world():
 
 @app.route('/hbnb', strict_slashes=False)
 def hello_world_2():
-    """This funtion returns string 'HBNB' in the /hbnb """
+    """This function returns string 'HBNB' in the /hbnb """
     return "HBNB"
 
 
 @app.route('/c/<text>', strict_slashes=False)
 def hello_world_3(text):
     """Function returns 'C' followed by (space replaced underscores) text"""
-    return "C {}".format(escape(text).replace('_', ' '))
+    return "C {}".format(text.replace('_', ' '))
 
 
 @app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
@@ -39,7 +39,7 @@ def hello_world_3(text):
 def hello_world_4(text):
     """Returns 'Python' followed by (space replaced underscores) text
     Note: <text> defaults to 'is cool' if undefined"""
-    return "Python {}".format(escape(text).replace('_', ' '))
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
