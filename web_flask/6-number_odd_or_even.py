@@ -13,7 +13,7 @@
                     "H1 tag: Number: n" inside the tag BODY
         MUST use the option 'strict_slashes=False in route definition
 """
-from flask import Flask, escape, render_template
+from flask import Flask, render_template
 
 # instantiate a Flask application
 app = Flask(__name__)
@@ -23,13 +23,13 @@ app.url_map.strict_slashes = False  # override default globally
 # define a route to trigger the function defined right after
 @app.route('/')
 def hello_world():
-    """ Returns 'Hello HBNB' """
+    """ Returns 'Hello HBNB' in the / route """
     return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hello_world_2():
-    """ Returns 'HBNB' """
+    """ Returns 'HBNB' in the /hbnb route"""
     return "HBNB"
 
 
@@ -37,7 +37,7 @@ def hello_world_2():
 @app.route('/c/<text>')
 def hello_world_3(text):
     """ Returns 'C' followed by (space replaced underscores) text """
-    return "C {}".format(escape(text).replace('_', ' '))
+    return "C {}".format(text.replace('_', ' '))
 
 
 # route to trigger if no 'text' in url (defaults to defaults value)
@@ -47,7 +47,7 @@ def hello_world_3(text):
 def hello_world_4(text):
     """ Returns 'Python' followed by (space replaced underscores) text
     Note: <text> defaults to 'is cool' if undefined """
-    return "Python {}".format(escape(text).replace('_', ' '))
+    return "Python {}".format(text.replace('_', ' '))
 
 
 @app.route('/number/<int:n>')
