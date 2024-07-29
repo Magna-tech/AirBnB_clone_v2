@@ -12,44 +12,41 @@ Required
 """
 
 
-from flask import Flask, escape
+from flask import Flask
 
 # instantiate a Flask application
 app = Flask(__name__)
-app.url_map.strict_slashes = False  # override default globally
 
 
-# define a route to trigger the function defined right after
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def hello_world():
-    """This function returns 'Hello HBNB'"""
+    """This function returns 'Hello HBNB' in the home directory"""
     return "Hello HBNB!"
 
 
-@app.route('/hbnb')
+@app.route('/hbnb', strict_slashes=False)
 def hello_world_2():
-    """This function returns 'HBNB'"""
+    """This function returns 'HBNB' in the /hbnb"""
     return "HBNB"
 
 
-# the route captures a value (text) from the URL & passes to the function
-@app.route('/c/<text>')
+@app.route('/c/<text>', strict_slashes=False)
 def hello_world_3(text):
     """Returns 'C' followed by (space replaced underscores) text"""
-    return "C {}".format(escape(text).replace('_', ' '))
+    return "C {}".format(text.replace('_', ' '))
 
 
 # route to trigger if no 'text' in url (defaults to defaults value)
-@app.route('/python', defaults={'text': 'is cool'})
+@app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
 # route to trigger if 'text' in url
-@app.route('/python/<text>')
+@app.route('/python/<text>', strict_slashes=False)
 def hello_world_4(text):
     """Returns 'Python' followed by (space replaced underscores) text
     Note: <text> defaults to 'is cool' if undefined"""
-    return "Python {}".format(escape(text).replace('_', ' '))
+    return "Python {}".format(text.replace('_', ' '))
 
 
-@app.route('/number/<int:n>')
+@app.route('/number/<int:n>', strict_slashes=False)
 def hello_number(n):
     """returns "n is a number" if n is an int"""
     return "{} is a number".format(n)
